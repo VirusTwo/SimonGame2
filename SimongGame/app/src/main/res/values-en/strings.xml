@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "textView2">Simon Game Configuration</string>
+    <string name = "textView3">Buttons Color</string>
+    <string name = "textView4">Daltoniens Mode</string>
+    <string name = "textView5">Application Language</string>
+    <string name = "switch1">Disabled </string>
+    <string name = "textView7">English :</string>
+    <string name = "textView6">French :</string>
+    <string name = "button4">Back</string>
+    <string name = "btLeave">Leave</string>
+    <string name = "btSettings">Settings</string>
+    <string name = "btPlay">Play</string>
+</resources>

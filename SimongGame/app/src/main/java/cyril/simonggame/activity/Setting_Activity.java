@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
+import cyril.simonggame.R;
 import cyril.simonggame.view.Menu_view;
 import cyril.simonggame.view.Setting_View;
 

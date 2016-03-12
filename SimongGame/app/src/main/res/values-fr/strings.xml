@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "textView2">Configuration du Simon</string>
+    <string name = "textView3">Couleurs des boutons</string>
+    <string name = "textView4">Mode Daltoniens</string>
+    <string name = "textView5">Langue de l'application</string>
+    <string name = "switch1">Désactiver </string>
+    <string name = "textView7">Anglais :</string>
+    <string name = "textView6">Français :</string>
+    <string name = "button4">Retour</string>
+    <string name = "btLeave">Quitter</string>
+    <string name = "btSettings">Paramètres</string>
+    <string name = "btPlay">Jouer</string>
+
+</resources>

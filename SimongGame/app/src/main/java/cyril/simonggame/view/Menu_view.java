@@ -37,6 +37,7 @@ public class Menu_view extends LinearLayout {
         play.setOnClickListener(controller);
         setting.setOnClickListener(controller);
         leave.setOnClickListener(controller);
+
     }
 
 }
