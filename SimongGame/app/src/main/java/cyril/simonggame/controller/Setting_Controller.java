@@ -20,11 +20,13 @@ import cyril.simonggame.view.Setting_View;
  */
 public class Setting_Controller implements View.OnClickListener {
     Setting_View setting_view;
+    Setting_Activity setting_activity;
     private int idColor = 0;
     String numId = "numIdColor";
     String numLevel = "numLevel";
     public Setting_Controller(Setting_View view){
         this.setting_view = view;
+        this.setting_activity = (Setting_Activity)setting_view.getContext();
     }
     ActivityOptionsCompat compat ;
     @Override
@@ -41,11 +43,13 @@ public class Setting_Controller implements View.OnClickListener {
                 break;
 
             case R.id.btRetour :
+
                 compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) setting_view.getContext(), null);
                 Intent intent = new Intent(setting_view.getContext(), Menu_Activity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra(numId, idColor);
-                setting_view.getContext().startActivity(intent, compat.toBundle());
+                //setting_view.getContext().startActivity(intent, compat.toBundle());
+                setting_activity.finish();
                 break;
 
             case R.id.imgbtEnglish :
