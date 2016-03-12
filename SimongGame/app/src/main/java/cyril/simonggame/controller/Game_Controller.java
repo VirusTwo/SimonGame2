@@ -16,26 +16,9 @@ public class Game_Controller implements View.OnClickListener {
         this.game_View = view;
         this.simonGame = game_View.simonGame;
     }
+
     public void onClick(View v) {
         Button currentButton = (Button)v;
-        System.out.println(simonGame.getgameStarted());
-       if(simonGame.getgameStarted() && !simonGame.getInAnimation()){
-           game_View.doAnimationBounce(currentButton);
-            if(currentButton == simonGame.getPattern().get(simonGame.getRound())){
-                simonGame.setRound(simonGame.getRound()+1);
-            }else{
-                simonGame.setGameStarted(false);
-                System.out.println("GameOver");
-            }
-
-            if(simonGame.getPattern().size() == simonGame.getRound()){
-                simonGame.scoreUp();
-                game_View.updateScore(simonGame.getRound());
-
-                System.out.println("GG");
-                simonGame.setInAnimation(true);
-                game_View.startGamePartternAnimation();
-            }
-        }
+        simonGame.userHadClick(currentButton);
     }
 }

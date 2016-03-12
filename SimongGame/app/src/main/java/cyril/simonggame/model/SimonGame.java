@@ -25,8 +25,8 @@ public class SimonGame {
     private boolean inAnimation = false;
 
     private Button buttons[];
-    private int round;
-    private int currentTurn;
+    private int score;
+    private int tour;
     private ArrayList<Button> pattern = new ArrayList<Button>();
     public SimonGame(Game_View game_View,Button buttons[]){
         this.buttons = buttons;
@@ -35,13 +35,13 @@ public class SimonGame {
     public void startGame(){
         pattern.clear();
         gameStarted = true;
-        round = 0;
-        currentTurn = 0;
+        score = 0;
+        tour = 0;
         game_View.updateScore(0);
         game_View.startGamePartternAnimation();
     }
     public void addColorToPattern(){
-        setRound(0);
+        setTour(0);
         int randnb = random(0,3);
         pattern.add(buttons[randnb]);
     }
@@ -56,11 +56,11 @@ public class SimonGame {
         return buttons[index];
     }
 
-    public void setRound(int round){
-        this.round = round;
+    public void setTour(int tour){
+        this.tour = tour;
     }
-    public int getRound(){
-        return round;
+    public int getTour(){
+        return tour;
     }
 
 
@@ -79,6 +79,33 @@ public class SimonGame {
     }
 
     public void scoreUp(){
-        round++;
+        score++;
+    }
+    public int getScore(){return score;}
+
+    public void userHadClick(Button currentButton){
+        if(gameStarted && !inAnimation){
+            game_View.doAnimationBounce(currentButton);
+            if(currentButton == pattern.get(tour)){
+                tour++;
+            }else{
+                gameOver();
+                System.out.println("GameOver");
+            }
+
+            if(pattern.size() == tour){
+                scoreUp();
+                game_View.updateScore(score);
+                System.out.println("GG");
+                inAnimation = true;
+                game_View.startGamePartternAnimation();
+            }
+        }
+    }
+    public void gameOver(){
+        gameStarted = false;
+        game_View.setTextViewFinalScore(score);
+        game_View.doGameOverAnimation();
+
     }
 }

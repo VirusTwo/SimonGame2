@@ -3,6 +3,7 @@ package cyril.simonggame.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
+import android.view.WindowManager;
 
 import cyril.simonggame.view.Menu_view;
 
@@ -15,8 +16,13 @@ public class Menu_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //retire le titre (Toolbar)
+        setInfullScreen();
         menu_view = new Menu_view(this);
         setContentView(menu_view);
     }
 
+    public void setInfullScreen(){
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
 }
