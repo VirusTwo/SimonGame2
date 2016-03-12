@@ -43,7 +43,6 @@ public class Game_View extends LinearLayout {
         layoutInflater.inflate(R.layout.activity_game, this, true);
     }
     private void bindView(){
-        Game_Controller controller = new Game_Controller(this);
         //BindButton
         buttons[0] = (Button)findViewById(R.id.buttonBlue);
         buttons[1] = (Button)findViewById(R.id.buttonGreen);
