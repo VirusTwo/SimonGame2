@@ -1,6 +1,7 @@
 package cyril.simonggame.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Window;
@@ -16,7 +17,8 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //retire le titre (Toolbar)
         setInfullScreen();
-        game_View = new Game_View(this);
+
+        game_View = new Game_View(this,getIntent());
         setContentView(game_View);
     }
 

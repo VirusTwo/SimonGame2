@@ -24,7 +24,6 @@ public class Setting_View extends LinearLayout {
     private Button retour;
     private Button english;
     private Button french;
-    private Switch switchDalto;
     private Button level1;
     private Button level2;
     private Button level3;
@@ -49,7 +48,6 @@ public class Setting_View extends LinearLayout {
         retour = (Button) findViewById(R.id.btRetour);
         english = (Button) findViewById(R.id.imgbtEnglish);
         french = (Button) findViewById(R.id.imgbtFrench);
-        switchDalto = (Switch) findViewById(R.id.switch1);
         level1 = (Button) findViewById(R.id.btLevel1);
         level2 = (Button) findViewById(R.id.btLevel2);
         level3 = (Button) findViewById(R.id.btLevel3);
@@ -60,7 +58,6 @@ public class Setting_View extends LinearLayout {
         retour.setOnClickListener(controller);
         english.setOnClickListener(controller);
         french.setOnClickListener(controller);
-        switchDalto.setOnClickListener(controller);
         level1.setOnClickListener(controller);
         level2.setOnClickListener(controller);
         level3.setOnClickListener(controller);

@@ -27,11 +27,34 @@ public class SimonGame {
     private Button buttons[];
     private int score;
     private int tour;
+    private int difficult=1;
+    public int duration1;
+    public int duration2;
     private ArrayList<Button> pattern = new ArrayList<Button>();
-    public SimonGame(Game_View game_View,Button buttons[]){
+    public SimonGame(Game_View game_View,Button buttons[], int difficult){
+        this.difficult = difficult;
         this.buttons = buttons;
         this.game_View = game_View;
+        switch (difficult){
+            case 1:
+                duration1 = 2000;
+                duration2 = 800;
+                break;
+            case 2:
+                duration1 = 1000;
+                duration2 = 400;
+                break;
+            case 3:
+                duration1 = 200;
+                duration2 = 75;
+                break;
+            default:
+                duration1 = 1000;
+                duration2 = 400;
+        }
+        game_View.setDurationAnimationGame(duration2);
     }
+
     public void startGame(){
         pattern.clear();
         gameStarted = true;

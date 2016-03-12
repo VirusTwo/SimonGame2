@@ -1,6 +1,7 @@
 package cyril.simonggame.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -15,6 +16,8 @@ public class Menu_view extends LinearLayout {
     private Button play;
     private Button leave;
     private Button setting;
+    public int difficult = 1;
+    public int color = 1;
     final Context context;
     public Menu_view(Context context) {
         super(context);
@@ -39,5 +42,4 @@ public class Menu_view extends LinearLayout {
         leave.setOnClickListener(controller);
 
     }
-
 }

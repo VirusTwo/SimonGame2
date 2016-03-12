@@ -1,6 +1,7 @@
 package cyril.simonggame.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -37,19 +38,22 @@ public class Game_View extends LinearLayout {
     private Animation animScaleToInvisible;
     private RelativeLayout layoutGameOver;
     private RelativeLayout layoutGameInProgress;
+    public final static String DIFFICULT = "DIFFICULT";
+    public final static String COLOR = "COLOR";
     final Context context;
     private Handler mainHandler = new Handler();
 
-    public Game_View(Context context) {
+    public Game_View(Context context,Intent data) {
         super(context);
         itSelf = this;
         this.context = context;
-
+        int difficult = data.getIntExtra(DIFFICULT, 1);
+        int color = data.getIntExtra(COLOR, 1);
         inflate();
         bindView();
         initAnimation();
 
-        simonGame = new SimonGame(this, buttons);
+        simonGame = new SimonGame(this, buttons,difficult);
         doStartGameAnimation();
 
         initListener();
@@ -146,7 +150,9 @@ public class Game_View extends LinearLayout {
             }
         });
     }
-
+    public void setDurationAnimationGame(int duration){
+        animFondu.setDuration(duration);
+    }
     public void initListener() {
         for (final Button x : buttons) {
             x.setOnClickListener(new Game_Controller(this));
@@ -232,7 +238,7 @@ public class Game_View extends LinearLayout {
                 simonGame.addColorToPattern();
                 for (final Button x : simonGame.getPattern()) {
                     doAnimInMainHandle(x);
-                    sleep(700);
+                    sleep(simonGame.duration1);
                 }
                 simonGame.setInAnimation(false);
 

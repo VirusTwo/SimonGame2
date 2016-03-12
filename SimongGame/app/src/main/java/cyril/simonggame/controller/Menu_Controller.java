@@ -20,9 +20,13 @@ import cyril.simonggame.view.Menu_view;
  */
 public class Menu_Controller implements View.OnClickListener {
     Menu_view menu_view;
-
+    Menu_Activity menu_activity;
+    public final int SETTINGS_REQUEST = 1;
+    public final static String DIFFICULT = "DIFFICULT";
+    public final static String COLOR = "COLOR";
     public Menu_Controller(Menu_view view){
         this.menu_view = view;
+        menu_activity = (Menu_Activity)view.getContext();
     }
     ActivityOptionsCompat compat ;
     @Override
@@ -32,13 +36,17 @@ public class Menu_Controller implements View.OnClickListener {
                 compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) menu_view.getContext(), null);
                 Intent intent = new Intent(menu_view.getContext(), GameActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                menu_view.getContext().startActivity(intent,compat.toBundle());
+                intent.putExtra(DIFFICULT, menu_view.difficult);
+                intent.putExtra(COLOR,menu_view.color);
+                menu_view.getContext().startActivity(intent, compat.toBundle());
                 break;
             case R.id.btSetting :
                 compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) menu_view.getContext(), null);
                 Intent intent2 = new Intent(menu_view.getContext(), Setting_Activity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                menu_view.getContext().startActivity(intent2,compat.toBundle());
+                //intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent2.putExtra(DIFFICULT, menu_view.difficult);
+                intent2.putExtra(COLOR, menu_view.color);
+                ((Activity) menu_view.getContext()).startActivityForResult(intent2, SETTINGS_REQUEST, compat.toBundle());
                 break;
             case R.id.btLeave :
                 int p = android.os.Process.myPid();

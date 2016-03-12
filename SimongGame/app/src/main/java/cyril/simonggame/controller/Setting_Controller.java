@@ -22,8 +22,10 @@ public class Setting_Controller implements View.OnClickListener {
     Setting_View setting_view;
     Setting_Activity setting_activity;
     private int idColor = 0;
-    String numId = "numIdColor";
-    String numLevel = "numLevel";
+    public final static String DIFFICULT = "DIFFICULT";
+    public final static String COLOR = "COLOR";
+    public final static int DIFFICULT_CODE = 10;
+    public final static int COLOR_CODE = 11;
     public Setting_Controller(Setting_View view){
         this.setting_view = view;
         this.setting_activity = (Setting_Activity)setting_view.getContext();
@@ -31,24 +33,44 @@ public class Setting_Controller implements View.OnClickListener {
     ActivityOptionsCompat compat ;
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent(setting_view.getContext(), Menu_Activity.class);
         switch (v.getId()){
             case R.id.btColor1 :
                 idColor = 1;
+                intent.putExtra(COLOR, idColor);
+                setting_activity.setResult(COLOR_CODE,intent);
+                setting_activity.finish();
                 break;
             case R.id.btColor2 :
                 idColor = 2;
+                intent.putExtra(COLOR, idColor);
+                setting_activity.setResult(COLOR_CODE, intent);
+                setting_activity.finish();
                 break;
             case R.id.btColor3 :
                 idColor = 3;
+                intent.putExtra(COLOR, idColor);
+                setting_activity.setResult(COLOR_CODE, intent);
+                setting_activity.finish();
+                break;
+            case R.id.btLevel1:
+                intent.putExtra(DIFFICULT, 1);
+                setting_activity.setResult(DIFFICULT_CODE, intent);
+                setting_activity.finish();
+                break;
+            case R.id.btLevel2 :
+                intent.putExtra(DIFFICULT, 2);
+                setting_activity.setResult(DIFFICULT_CODE, intent);
+                setting_activity.finish();
+                break;
+            case R.id.btLevel3 :
+                intent.putExtra(DIFFICULT, 3);
+                setting_activity.setResult(DIFFICULT_CODE, intent);
+                setting_activity.finish();
                 break;
 
             case R.id.btRetour :
-
-                compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) setting_view.getContext(), null);
-                Intent intent = new Intent(setting_view.getContext(), Menu_Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra(numId, idColor);
-                //setting_view.getContext().startActivity(intent, compat.toBundle());
+                intent.setFlags(0);
                 setting_activity.finish();
                 break;
 
@@ -63,8 +85,6 @@ public class Setting_Controller implements View.OnClickListener {
                 setting_view.getContext().getResources().updateConfiguration(config, setting_view.getContext().getResources().getDisplayMetrics());
 
                 Intent intent2 = new Intent(setting_view.getContext(), Menu_Activity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent2.putExtra(numId, idColor);
                 setting_view.getContext().startActivity(intent2, compat.toBundle());
                 break;
 
@@ -79,38 +99,9 @@ public class Setting_Controller implements View.OnClickListener {
                 setting_view.getContext().getResources().updateConfiguration(configfr, setting_view.getContext().getResources().getDisplayMetrics());
 
                 Intent intent3 = new Intent(setting_view.getContext(), Menu_Activity.class);
-                intent3.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent3.putExtra(numId, idColor);
                 setting_view.getContext().startActivity(intent3, compat.toBundle());
                 break;
 
-            case R.id.btLevel1 :
-                compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) setting_view.getContext(), null);
-                Intent intent4 = new Intent(setting_view.getContext(), Menu_Activity.class);
-                intent4.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent4.putExtra(numLevel,1);
-                setting_view.getContext().startActivity(intent4,compat.toBundle());
-                break;
-
-            case R.id.btLevel2 :
-                compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) setting_view.getContext(), null);
-                Intent intent5 = new Intent(setting_view.getContext(), Menu_Activity.class);
-                intent5.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent5.putExtra(numLevel,2);
-                setting_view.getContext().startActivity(intent5,compat.toBundle());
-                break;
-
-            case R.id.btLevel3 :
-                compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) setting_view.getContext(), null);
-                Intent intent6 = new Intent(setting_view.getContext(), Menu_Activity.class);
-                intent6.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent6.putExtra(numLevel,3);
-                setting_view.getContext().startActivity(intent6,compat.toBundle());
-                break;
-
-            case R.id.switch1 :
-
-                break;
         }
     }
 }
