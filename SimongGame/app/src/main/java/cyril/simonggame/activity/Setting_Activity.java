@@ -15,7 +15,7 @@ public class Setting_Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //retire le titre (Toolbar)
         setting_view = new Setting_View(this);
         setContentView(setting_view);
     }

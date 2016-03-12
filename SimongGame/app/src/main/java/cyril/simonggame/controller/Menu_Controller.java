@@ -12,6 +12,7 @@ import android.view.View;
 import cyril.simonggame.R;
 import cyril.simonggame.activity.GameActivity;
 import cyril.simonggame.activity.Menu_Activity;
+import cyril.simonggame.activity.Setting_Activity;
 import cyril.simonggame.view.Menu_view;
 
 /**
@@ -24,16 +25,19 @@ public class Menu_Controller implements View.OnClickListener {
     public Menu_Controller(Menu_view view){
         this.menu_view = view;
     }
+    ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) menu_view.getContext(), null);
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btPlay :
-                ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) menu_view.getContext(), null);
                 Intent intent = new Intent(menu_view.getContext(), GameActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 menu_view.getContext().startActivity(intent,compat.toBundle());
                 break;
             case R.id.btSetting :
+                Intent intent2 = new Intent(menu_view.getContext(), Setting_Activity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                menu_view.getContext().startActivity(intent2,compat.toBundle());
                 break;
             case R.id.btLeave :
                 int p = android.os.Process.myPid();

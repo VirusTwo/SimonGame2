@@ -14,7 +14,7 @@ public class Menu_Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //retire le titre (Toolbar)
         menu_view = new Menu_view(this);
         setContentView(menu_view);
     }

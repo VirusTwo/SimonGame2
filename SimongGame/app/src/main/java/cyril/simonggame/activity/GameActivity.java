@@ -12,7 +12,7 @@ public class GameActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //retire le titre (Toolbar)
         game_View = new Game_View(this);
         setContentView(game_View);
     }
