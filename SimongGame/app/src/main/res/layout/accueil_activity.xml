@@ -15,7 +15,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="@string/btPlay"
             android:id="@+id/btPlay"
             android:background="@drawable/pinkcirclemenu"
             android:textSize="50dp"
@@ -32,7 +32,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/btSettings"
             android:id="@+id/btSetting"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/greencirclemenu"
@@ -54,7 +54,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Leave"
+            android:text="@string/btLeave"
             android:id="@+id/btLeave"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bluecirclemenu"
