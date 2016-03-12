@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="New Button"
                 android:background="@drawable/greencirclemenu"
-                android:id="@+id/button"
+                android:id="@+id/btColor1"
                 android:layout_weight="1" />
 
             <Button
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="New Button"
                 android:background="@drawable/greencirclemenu"
-                android:id="@+id/button2"
+                android:id="@+id/btColor2"
                 android:layout_weight="1" />
 
             <Button
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="New Button"
                 android:background="@drawable/greencirclemenu"
-                android:id="@+id/button3"
+                android:id="@+id/btColor3"
                 android:layout_weight="1" />
         </LinearLayout>
         <LinearLayout
@@ -161,7 +161,7 @@
                 <ImageButton
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/imgBtEnglish"
                     android:src="@drawable/uk"
                     />
             </LinearLayout>
@@ -184,7 +184,7 @@
                 <ImageButton
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:id="@+id/imageButton"
+                    android:id="@+id/imgbtFrench"
                     android:src="@drawable/france"
                     />
             </LinearLayout>
@@ -200,7 +200,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button4"
-                android:id="@+id/button4"
+                android:id="@+id/btRetour"
                 android:background="@drawable/bluecirclemenu" />
         </LinearLayout>
 
