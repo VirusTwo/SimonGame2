@@ -23,9 +23,8 @@ public class SimonGame {
     private Game_View game_View;
     private boolean gameStarted = false;
     private boolean inAnimation = false;
-    private Handler mainHandle;
+
     private Button buttons[];
-    private boolean canPlay = false;
     private int round;
     private int currentTurn;
     private ArrayList<Button> pattern = new ArrayList<Button>();
@@ -38,9 +37,14 @@ public class SimonGame {
         gameStarted = true;
         round = 0;
         currentTurn = 0;
+        game_View.updateScore(0);
         game_View.startGamePartternAnimation();
     }
-
+    public void addColorToPattern(){
+        setRound(0);
+        int randnb = random(0,3);
+        pattern.add(buttons[randnb]);
+    }
     public Integer random(int min, int max){
         return min + (int)(Math.random() * ((max - min) + 1));
     }
@@ -72,5 +76,9 @@ public class SimonGame {
     }
     public void setGameStarted(boolean gameStarted){
         this.gameStarted = gameStarted;
+    }
+
+    public void scoreUp(){
+        round++;
     }
 }

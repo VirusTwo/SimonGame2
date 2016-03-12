@@ -18,12 +18,10 @@ public class Game_Controller implements View.OnClickListener {
     }
     public void onClick(View v) {
         Button currentButton = (Button)v;
-        game_View.doAnimationBounce(currentButton);
         System.out.println(simonGame.getgameStarted());
        if(simonGame.getgameStarted() && !simonGame.getInAnimation()){
-
+           game_View.doAnimationBounce(currentButton);
             if(currentButton == simonGame.getPattern().get(simonGame.getRound())){
-
                 simonGame.setRound(simonGame.getRound()+1);
             }else{
                 simonGame.setGameStarted(false);
@@ -31,7 +29,11 @@ public class Game_Controller implements View.OnClickListener {
             }
 
             if(simonGame.getPattern().size() == simonGame.getRound()){
+                simonGame.scoreUp();
+                game_View.updateScore(simonGame.getRound());
+
                 System.out.println("GG");
+                simonGame.setInAnimation(true);
                 game_View.startGamePartternAnimation();
             }
         }

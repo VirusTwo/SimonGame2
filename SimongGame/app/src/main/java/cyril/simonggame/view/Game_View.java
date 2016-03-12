@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import cyril.simonggame.R;
 import cyril.simonggame.controller.Game_Controller;
@@ -18,7 +19,10 @@ import cyril.simonggame.model.SimonGame;
  */
 public class Game_View extends LinearLayout {
     public SimonGame simonGame;
+    private Game_View itSelf ;
     private Button buttons[] =  new Button[4];
+    private TextView textViewScore;
+    private LinearLayout layoutButtons;
     private Animation animFondu;
     private Animation animRotate;
     private Animation animStartGame;
@@ -27,6 +31,7 @@ public class Game_View extends LinearLayout {
     private Handler mainHandler = new Handler();
     public Game_View(Context context) {
         super(context);
+        itSelf = this;
         this.context = context;
 
         inflate();
@@ -34,7 +39,9 @@ public class Game_View extends LinearLayout {
         initAnimation();
 
         simonGame = new SimonGame(this,buttons);
-        simonGame.startGame();
+
+        StartGameAnimation startGameAnimation = new StartGameAnimation();
+        startGameAnimation.start();
         initListener();
     }
 
@@ -49,6 +56,8 @@ public class Game_View extends LinearLayout {
         buttons[1] = (Button)findViewById(R.id.buttonGreen);
         buttons[2] = (Button)findViewById(R.id.buttonPurple);
         buttons[3] = (Button)findViewById(R.id.buttonRed);
+        textViewScore = (TextView) findViewById(R.id.textViewScoreNb);
+        layoutButtons = (LinearLayout) findViewById(R.id.layoutButtons);
 
     }
     public  void initAnimation(){
@@ -61,34 +70,50 @@ public class Game_View extends LinearLayout {
             x.setOnClickListener(new Game_Controller(this));
         }
     }
+    public void doStartGameAnimation(){
+        layoutButtons.startAnimation(animStartGame);
+    }
     public void doAnimationFondu(final Button button) {
         button.startAnimation(animFondu);
     }
     public void doAnimationBounce(final Button button){
         button.startAnimation(animBounceButton);
     }
+
     public void startGamePartternAnimation(){
         GamePatternAnimation gamePatternAnimation = new GamePatternAnimation();
         gamePatternAnimation.start();
     }
-    public class GamePatternAnimation extends Thread{
-        public Integer random(int min, int max){
-            return min + (int)(Math.random() * ((max - min) + 1));
-        }
+    public void updateScore(int score){
+        textViewScore.setText(String.valueOf(score));
+    }
+
+    public class StartGameAnimation extends Thread{
         public void run(){
+            doStartGameAnimation();
             try{
                 sleep(2000);
-            }catch (InterruptedException e){
+            } catch (InterruptedException e){
             }
-            int randnb;
+            Runnable runAnimation = new Runnable() {
+                @Override
+                public void run() {
+                    simonGame.startGame();
+                }
+            };
+            mainHandler.post(runAnimation);
+        }
+
+    }
+    public class GamePatternAnimation extends Thread{
+        public void run(){
             simonGame.setInAnimation(true);
-            simonGame.setRound(0);
-            randnb = random(0,3);
-            simonGame.getPattern().add(simonGame.getButtonAt(randnb));
+            int randnb;
+            simonGame.addColorToPattern();
             for(final Button x: simonGame.getPattern()) {
                 doAnimInMainHandle(x);
                 try{
-                    sleep(400);
+                    sleep(700);
                 }catch (InterruptedException e){
                 }
             }
