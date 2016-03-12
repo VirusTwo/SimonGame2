@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonRed"
-                    android:background="@drawable/redcircle"/>
+                    android:background="@drawable/redcircle" />
             </LinearLayout>
 
             <LinearLayout
