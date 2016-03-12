@@ -1,6 +1,8 @@
 package cyril.simonggame.view;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,7 @@ public class Game_View extends LinearLayout {
     private Animation animBounceButton;
     final Context context;
     private Handler mainHandler = new Handler();
+
     public Game_View(Context context) {
         super(context);
         itSelf = this;
@@ -50,7 +53,6 @@ public class Game_View extends LinearLayout {
         layoutInflater.inflate(R.layout.activity_game, this, true);
     }
     private void bindView(){
-        Game_Controller controller = new Game_Controller(this);
         //BindButton
         buttons[0] = (Button)findViewById(R.id.buttonBlue);
         buttons[1] = (Button)findViewById(R.id.buttonGreen);
