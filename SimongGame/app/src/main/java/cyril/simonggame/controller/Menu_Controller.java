@@ -3,6 +3,7 @@ package cyril.simonggame.controller;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.telecom.Call;
 import android.transition.Slide;
 import android.transition.TransitionInflater;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.view.View;
 
 import cyril.simonggame.R;
 import cyril.simonggame.activity.GameActivity;
+import cyril.simonggame.activity.Menu_Activity;
 import cyril.simonggame.view.Menu_view;
 
 /**
@@ -17,6 +19,8 @@ import cyril.simonggame.view.Menu_view;
  */
 public class Menu_Controller implements View.OnClickListener {
     Menu_view menu_view;
+    Menu_Activity menu_activity;
+    GameActivity gameactivity;
     public Menu_Controller(Menu_view view){
         this.menu_view = view;
     }
@@ -32,6 +36,11 @@ public class Menu_Controller implements View.OnClickListener {
             case R.id.btSetting :
                 break;
             case R.id.btLeave :
+                int p = android.os.Process.myPid();
+                android.os.Process.killProcess(p);
+                //gameactivity.finish();
+                //menu_activity.finish();
+                //Details.this.overridePendingTransition(0,0);
                 break;
         }
 
