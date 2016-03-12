@@ -24,9 +24,10 @@ public class Menu_Controller implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btPlay :
+                ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) menu_view.getContext(), null);
                 Intent intent = new Intent(menu_view.getContext(), GameActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                menu_view.getContext().startActivity(intent);
+                menu_view.getContext().startActivity(intent,compat.toBundle());
                 break;
             case R.id.btSetting :
                 break;
