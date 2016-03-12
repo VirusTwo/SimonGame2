@@ -11,6 +11,7 @@ import java.util.Locale;
 import cyril.simonggame.R;
 import cyril.simonggame.activity.GameActivity;
 import cyril.simonggame.activity.Menu_Activity;
+import cyril.simonggame.activity.Setting_Activity;
 import cyril.simonggame.view.Setting_View;
 
 
@@ -43,8 +44,8 @@ public class Setting_Controller implements View.OnClickListener {
                 compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) setting_view.getContext(), null);
                 Intent intent = new Intent(setting_view.getContext(), Menu_Activity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra(numId,idColor);
-                setting_view.getContext().startActivity(intent,compat.toBundle());
+                intent.putExtra(numId, idColor);
+                setting_view.getContext().startActivity(intent, compat.toBundle());
                 break;
 
             case R.id.imgbtEnglish :
@@ -102,7 +103,7 @@ public class Setting_Controller implements View.OnClickListener {
                 intent6.putExtra(numLevel,3);
                 setting_view.getContext().startActivity(intent6,compat.toBundle());
                 break;
-            
+
             case R.id.switch1 :
 
                 break;
