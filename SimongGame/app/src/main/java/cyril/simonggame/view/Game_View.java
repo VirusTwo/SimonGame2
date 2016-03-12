@@ -1,6 +1,7 @@
 package cyril.simonggame.view;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,9 @@ public class Game_View extends LinearLayout {
         buttons[2] = (Button)findViewById(R.id.buttonPurple);
         buttons[3] = (Button)findViewById(R.id.buttonRed);
 
+        //test
+        //GradientDrawable bgShape = (GradientDrawable) buttons[0].getBackground();
+        //bgShape.setColor();
     }
     public  void initAnimation(){
         animFondu = AnimationUtils.loadAnimation(context, R.anim.alpha);

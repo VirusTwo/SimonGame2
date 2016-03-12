@@ -20,8 +20,7 @@ import cyril.simonggame.view.Menu_view;
  */
 public class Menu_Controller implements View.OnClickListener {
     Menu_view menu_view;
-    Menu_Activity menu_activity;
-    GameActivity gameactivity;
+
     public Menu_Controller(Menu_view view){
         this.menu_view = view;
     }
@@ -44,12 +43,7 @@ public class Menu_Controller implements View.OnClickListener {
             case R.id.btLeave :
                 int p = android.os.Process.myPid();
                 android.os.Process.killProcess(p);
-                //gameactivity.finish();
-                //menu_activity.finish();
-                //Details.this.overridePendingTransition(0,0);
                 break;
         }
-
-
     }
 }

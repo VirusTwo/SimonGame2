@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Window;
 
+import cyril.simonggame.R;
 import cyril.simonggame.view.Game_View;
 
 public class GameActivity extends Activity {
@@ -16,5 +17,6 @@ public class GameActivity extends Activity {
         game_View = new Game_View(this);
         setContentView(game_View);
     }
+
 
 }
