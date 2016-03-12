@@ -28,8 +28,8 @@ public class Setting_View extends LinearLayout {
     }
     private void bindView(){
         //Futur Objet de la page
-
         Setting_Controller controller = new Setting_Controller(this);
+
 
     }
 }
