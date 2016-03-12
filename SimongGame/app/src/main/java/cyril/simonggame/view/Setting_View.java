@@ -1,6 +1,7 @@
 package cyril.simonggame.view;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -27,6 +28,8 @@ public class Setting_View extends LinearLayout {
     }
     private void bindView(){
         //Futur Objet de la page
+
         Setting_Controller controller = new Setting_Controller(this);
+
     }
 }
