@@ -11,4 +11,8 @@
     <string name = "btLeave">Leave</string>
     <string name = "btSettings">Settings</string>
     <string name = "btPlay">Play</string>
+    <string name="textViewlevel">Difficulty</string>
+    <string name="btLevel1">Level 1</string>
+    <string name="btLevel2">Level 2</string>
+    <string name="btLevel3">Level 3</string>
 </resources>

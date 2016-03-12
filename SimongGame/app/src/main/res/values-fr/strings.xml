@@ -3,7 +3,7 @@
     <string name = "textView2">Configuration du Simon</string>
     <string name = "textView3">Couleurs des boutons</string>
     <string name = "textView4">Mode Daltoniens</string>
-    <string name = "textView5">Langue de l'application</string>
+    <string name = "textView5">Langue de l application</string>
     <string name = "switch1">Désactiver </string>
     <string name = "textView7">Anglais :</string>
     <string name = "textView6">Français :</string>
@@ -11,5 +11,8 @@
     <string name = "btLeave">Quitter</string>
     <string name = "btSettings">Paramètres</string>
     <string name = "btPlay">Jouer</string>
-
+    <string name="textViewlevel">Difficultés</string>
+    <string name="btLevel1">Niveau 1</string>
+    <string name="btLevel2">Niveau 2</string>
+    <string name="btLevel3">Niveau 3</string>
 </resources>
