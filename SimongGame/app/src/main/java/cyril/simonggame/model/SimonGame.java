@@ -23,11 +23,10 @@ public class SimonGame {
     private Game_View game_View;
     private boolean gameStarted = false;
     private boolean inAnimation = false;
-    private Handler mainHandle;
+
     private Button buttons[];
-    private boolean canPlay = false;
-    private int round;
-    private int currentTurn;
+    private int score;
+    private int tour;
     private ArrayList<Button> pattern = new ArrayList<Button>();
     public SimonGame(Game_View game_View,Button buttons[]){
         this.buttons = buttons;
@@ -36,11 +35,16 @@ public class SimonGame {
     public void startGame(){
         pattern.clear();
         gameStarted = true;
-        round = 0;
-        currentTurn = 0;
+        score = 0;
+        tour = 0;
+        game_View.updateScore(0);
         game_View.startGamePartternAnimation();
     }
-
+    public void addColorToPattern(){
+        setTour(0);
+        int randnb = random(0,3);
+        pattern.add(buttons[randnb]);
+    }
     public Integer random(int min, int max){
         return min + (int)(Math.random() * ((max - min) + 1));
     }
@@ -52,11 +56,11 @@ public class SimonGame {
         return buttons[index];
     }
 
-    public void setRound(int round){
-        this.round = round;
+    public void setTour(int tour){
+        this.tour = tour;
     }
-    public int getRound(){
-        return round;
+    public int getTour(){
+        return tour;
     }
 
 
@@ -72,5 +76,36 @@ public class SimonGame {
     }
     public void setGameStarted(boolean gameStarted){
         this.gameStarted = gameStarted;
+    }
+
+    public void scoreUp(){
+        score++;
+    }
+    public int getScore(){return score;}
+
+    public void userHadClick(Button currentButton){
+        if(gameStarted && !inAnimation){
+            game_View.doAnimationBounce(currentButton);
+            if(currentButton == pattern.get(tour)){
+                tour++;
+            }else{
+                gameOver();
+                System.out.println("GameOver");
+            }
+
+            if(pattern.size() == tour){
+                scoreUp();
+                game_View.updateScore(score);
+                System.out.println("GG");
+                inAnimation = true;
+                game_View.startGamePartternAnimation();
+            }
+        }
+    }
+    public void gameOver(){
+        gameStarted = false;
+        game_View.setTextViewFinalScore(score);
+        game_View.doGameOverAnimation();
+
     }
 }

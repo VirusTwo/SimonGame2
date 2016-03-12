@@ -2,61 +2,141 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/background"
     android:weightSum="1">
-
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
-
-        <LinearLayout
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutGameInProgress">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            android:text="Score : "
+            android:id="@+id/textViewScore"
+            android:textColor="#ffffff"
+            android:textIsSelectable="true"
+            android:textSize="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewScoreNb"
+            android:layout_alignBottom="@+id/textViewScore"
+            android:layout_toEndOf="@+id/textViewScore"
+            android:textSize="30dp"
+            android:textColor="#ffffff" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text=" "
+            android:id="@+id/relativeLayout">
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <Button
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutButtons">
+
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonPurple"
-                    android:background="@drawable/pinkcircle"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonRed"
-                    android:background="@drawable/redcircle"/>
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/buttonPurple"
+                        android:background="@drawable/pinkcircle"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginBottom="50dp"
+                        style="?android:attr/borderlessButtonStyle"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/buttonRed"
+                        android:background="@drawable/redcircle"
+                        style="?android:attr/borderlessButtonStyle"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/buttonGreen"
+                        android:background="@drawable/greencircle"
+                        android:layout_marginRight="50dp"
+                        style="?android:attr/borderlessButtonStyle"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/buttonBlue"
+                        android:background="@drawable/bluecircle"
+                        style="?android:attr/borderlessButtonStyle"/>
+                </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutGameOver"
+        android:visibility="invisible">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonGreen"
-                    android:background="@drawable/greencircle"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"/>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonBlue"
-                    android:background="@drawable/bluecircle"/>
-            </LinearLayout>
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GAME OVER"
+            android:id="@+id/textView2"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="50dp"
+            android:typeface="monospace"
+            android:textStyle="bold|italic" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/retrybutton"
+            android:src="@drawable/retrybutton"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCORE"
+            android:id="@+id/textView3"
+            android:textColor="#000000"
+            android:textSize="40dp"
+            android:textStyle="bold|italic"
+            android:typeface="monospace"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/textViewFinalScore"
+            android:textSize="50dp"
+            android:layout_marginTop="44dp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 
-    </RelativeLayout>
+</RelativeLayout>
