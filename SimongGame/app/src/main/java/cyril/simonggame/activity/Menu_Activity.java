@@ -10,7 +10,7 @@ import cyril.simonggame.view.Menu_view;
  * Created by VirusTwoIUT on 12/03/2016.
  */
 public class Menu_Activity extends Activity {
-    Menu_view menu_view;
+    static Menu_view menu_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
