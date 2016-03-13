@@ -2,6 +2,7 @@ package cyril.simonggame.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -53,12 +54,11 @@ public class Game_View extends LinearLayout {
         bindView();
         initAnimation();
 
-        simonGame = new SimonGame(this, buttons,difficult);
+        simonGame = new SimonGame(this, buttons, difficult);
         doStartGameAnimation();
 
         initListener();
     }
-
     private void inflate() {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.activity_game, this, true);
