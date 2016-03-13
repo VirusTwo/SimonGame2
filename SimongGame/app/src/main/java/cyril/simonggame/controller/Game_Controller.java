@@ -15,7 +15,7 @@ public class Game_Controller implements View.OnClickListener {
     public Game_Controller(Game_View view){
         this.game_View = view;
         this.simonGame = game_View.simonGame;
-    }
+}
 
     public void onClick(View v) {
         Button currentButton = (Button)v;
